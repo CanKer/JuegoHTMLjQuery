@@ -19,15 +19,92 @@
  .aliens {
   width: 30px;
   height: 30px;
+  float: left;
+  padding-right: 50px;
 }
 .aliens img {
   width: 30px;
   height: 30px;
 }
+#primerA {
+  position: absolute;
+  left: 100px;
+  top: 160px;
+}
+
+#segundoA {
+  position: absolute;
+  left: 440px;
+  top: 160px;
+}
+
+#tercerA {
+  position: absolute;
+  left: 780px;
+  top: 160px;
+}
+
+#primerB {
+  position: absolute;
+  left: 100px;
+  top: 210px;
+}
+
+#segundoB {
+  position: absolute;
+  left: 440px;
+  top: 210px;
+}
+
+#tercerB {
+  position: absolute;
+  left: 780px;
+  top: 210px;
+}
+
+#primerC {
+  position: absolute;
+  left: 100px;
+  top: 260px;
+}
+
+#segundoC {
+  position: absolute;
+  left: 440px;
+  top: 260px;
+}
+
+#tercerC {
+  position: absolute;
+  left: 780px;
+  top: 260px;
+}
+
+#primerD {
+  position: absolute;
+  left: 100px;
+  top: 310px;
+}
+
+#segundoD {
+  position: absolute;
+  left: 440px;
+  top: 310px;
+}
+
+#tercerD {
+  position: absolute;
+  left: 780px;
+  top: 310px;
+}
+
 
 .jugador  {
   width: 40px;
   height: 20px;
+  position: absolute;
+  left: 500px;
+  top: 580px
 }
 
 .jugador img  {
@@ -35,10 +112,17 @@
   height: 20px;
 
 }
-
+#vida {
+  position: absolute;
+  left: 15px;
+  top: 610px
+}
 .vidas  {
   width: 30px;
   height: 30px;
+  position: absolute;
+  left: 110px;
+  top: 615px
 }
 
 .vidas img {
