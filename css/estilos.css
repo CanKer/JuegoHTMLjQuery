@@ -223,3 +223,33 @@ p{
   width: 95px;
   height: 30px;
 }
+
+.raqueta{
+  width: 10px;
+  height: 100px;
+  float: left;
+}
+
+.pelota{
+   width: 40px;
+  height: 40px;
+  float: left;	
+}
+
+#pongPaddleIzquierda{
+  position: absolute;
+  left: 10px;
+  top: 200px;
+}
+
+#pongPaddleDerecha{
+  position: absolute;
+  right: 10px;
+  top: 100px;
+}
+
+#pongBall{
+  position: absolute;
+  left: 400px;
+  top: 300px;
+}
