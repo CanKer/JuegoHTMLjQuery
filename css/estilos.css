@@ -3,6 +3,7 @@
 #baseJuego  {
   width: 80%;
   height: 680px;
+  min-width: 1125px;
   background-color: #000;
   position: absolute;
   }
@@ -22,7 +23,7 @@
 }
 
 p{
-	color:white;;	
+	color:white;;
 }
  .aliens {
   width: 30px;
@@ -233,7 +234,7 @@ p{
 .pelota{
    width: 40px;
   height: 40px;
-  float: left;	
+  float: left;
 }
 
 #pongPaddleIzquierda{
