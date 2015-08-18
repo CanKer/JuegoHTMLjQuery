@@ -14,7 +14,15 @@
   padding-right: 20px;
 }
 #Hscore {
-  padding-left: 160px;
+  padding-left: 250px;
+}
+#scoreMenu{
+	position:absolute;
+	padding-left: 200px;
+}
+
+p{
+	color:white;;	
 }
  .aliens {
   width: 30px;
@@ -108,21 +116,42 @@
 }
 
 .jugador img  {
-  width: 40px;
-  height: 20px;
+  width: 55px;
+  height: 35px;
 
 }
-#vida {
+#vida{
   position: absolute;
   left: 15px;
   top: 610px
 }
+
+#vida1{
+	position: absolute;
+ 	padding-left: 15px;
+  	top: 610px;
+}
+
+#vida2{
+	position: absolute;
+	padding-left:55px;
+	top: 610px;
+}
+
+#vida3{
+	position: absolute;
+	padding-left:95px;
+	top: 610px;
+}
+
 .vidas  {
   width: 30px;
   height: 30px;
   position: absolute;
   left: 110px;
-  top: 615px
+  top: 615px;
+  float: left;
+  padding-right: 20px;
 }
 
 .vidas img {
@@ -131,20 +160,66 @@
 }
 
 #pared{
-	/*position: absolute;*/
-  	left: 50px;
-  	top: 500px
-}
-
-.pared{
-	width: 100px;
-	height: 30px;
 	position: absolute;
-	left: 125px;
-	top: 500px;
+ 	left: 60px;
+  	top: 240px;
 }
 
-.pared img{
-	width: 150px;
-	height: 60px;
+#pared2{
+	position: absolute;
+	padding-left:150px;
+	top: 240px;
+}
+
+#pared3{
+	position: absolute;
+	padding-left:105px;
+	top: 210px;
+}
+
+#pared4{
+	position: absolute;
+ 	padding-left: 400px;
+  	top: 240px;
+}
+
+#pared5{
+	position: absolute;
+	padding-left:490px;
+	top: 240px;
+}
+
+#pared6{
+	position: absolute;
+	padding-left:445px;
+	top: 210px;
+}
+
+#pared7{
+	position: absolute;
+ 	padding-left: 740px;
+  	top: 240px;
+}
+
+#pared8{
+	position: absolute;
+	padding-left:830px;
+	top: 240px;
+}
+
+#pared9{
+	position: absolute;
+	padding-left:785px;
+	top: 210px;
+}
+
+ .pared {
+  width: 100px;
+  height: 30px;
+  float: left;
+  padding-right: 50px
+}
+.pared img {
+  width: 95px;
+  height: 30px;
 }
