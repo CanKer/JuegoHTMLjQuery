@@ -15,7 +15,7 @@ $(document).ready(function()  {
   // change 12 to alter damping higher is slower
   $xp += (($mouseX - $xp)/12);
 //  $yp += (($mouseY - $yp)/12);
-  $("#jugador").css({left:$xp +'px', top:$yp +'px'});
+  $("#jugador").css({left:$xp +'px', top:$yp +'500'});
   }, 30);
 
 
