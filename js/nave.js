@@ -3,7 +3,7 @@ var $xp = 0, $yp =0;
 $(document).ready(function()  {
 
   $('#jugador').click(function() {
-   alert("hola");
+   alert("al darme click debería disparar pero aún no programo eso xD");
   });
 
   $(document).mousemove(function(e){
