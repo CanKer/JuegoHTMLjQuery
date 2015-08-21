@@ -7,6 +7,11 @@
   background-color: #000;
   position: absolute;
   }
+
+  #contenedor {
+    color: #fff;
+  }
+
 .score  {
   font-family: arcade;
   color: white;
@@ -23,7 +28,7 @@
 }
 
 p{
-	color:white;;
+	color:white;
 }
  .aliens {
   width: 30px;
@@ -109,8 +114,8 @@ p{
 
 
 .jugador  {
-  width: 40px;
-  height: 20px;
+  width: 55;
+  height: 35;
   position: absolute;
   left: 500px;
   top: 580px;
@@ -119,8 +124,18 @@ p{
 .jugador img  {
   width: 55px;
   height: 35px;
-
 }
+
+#bala {
+  height: 5px;
+  width: 5px;
+  
+  background-color: white;
+  position: absolute;
+  left: 500px;
+  top: 580px;
+}
+
 #vida{
   position: absolute;
   left: 15px;
@@ -158,6 +173,17 @@ p{
 .vidas img {
   width: 30px;
   height: 30px;
+}
+
+#xy {
+  position: absolute;
+  top: 615px;
+  left: 300px;
+  color: white;
+}
+#coordenadas {
+  color: white;
+  z-index: 5;
 }
 
 #pared{
