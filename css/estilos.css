@@ -35,6 +35,7 @@ p{
   height: 30px;
   float: left;
   padding-right: 50px;
+  background-image: image('../img/');
 }
 .aliens img {
   width: 30px;
@@ -129,7 +130,7 @@ p{
 #bala {
   height: 5px;
   width: 5px;
-  
+
   background-color: white;
   position: absolute;
   left: 500px;
