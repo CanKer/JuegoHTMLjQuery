@@ -41,12 +41,26 @@ enemigos('E3', 60, 30, 30, 30, 'o');
 enemigos('E4', 50, 40, 20, 40, 'o');
 enemigos('E5', 40, 50, 10, 50, 'o'); */
 
-enemigos('E1', 540, 150, -5, 0, 'o');
-enemigos('E2', 540, 200, 5, 0, 'o');
-enemigos('E3', 540, 250, -10, 0, 'o');
-enemigos('E4', 540, 300, 10, 0, 'o');
-enemigos('E5', 540, 350, -5, 0, 'o');
-enemigos('E6', 540, 400, 5, 0, 'o');
+enemigos('E01', 440, 150, -5, 0, 'o');
+enemigos('E02', 490, 150, -5, 0, 'o');
+enemigos('E03', 540, 150, -5, 0, 'o');
+enemigos('E04', 590, 150, -5, 0, 'o');
+enemigos('E05', 640, 150, -5, 0, 'o');
+enemigos('E06', 440, 200, 5, 0, 'o');
+enemigos('E07', 490, 200, 5, 0, 'o');
+enemigos('E08', 540, 200, 5, 0, 'o');
+enemigos('E09', 590, 200, 5, 0, 'o');
+enemigos('E10', 640, 200, 5, 0, 'o');
+enemigos('E11', 440, 250, -5, 0, 'o');
+enemigos('E12', 490, 250, -5, 0, 'o');
+enemigos('E13', 540, 250, -5, 0, 'o');
+enemigos('E14', 590, 250, -5, 0, 'o');
+enemigos('E15', 640, 250, -5, 0, 'o');
+enemigos('E16', 440, 300, 5, 0, 'o');
+enemigos('E17', 490, 300, 5, 0, 'o');
+enemigos('E18', 540, 300, 5, 0, 'o');
+enemigos('E19', 590, 300, 5, 0, 'o');
+enemigos('E20', 640, 300, 5, 0, 'o');
 
 //Jugador
 jugadores = function(id, x, y, velX, velY, vidas, fig) {
