@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+<<<<<<< Updated upstream
     <title></title>
   </head>
   <body>
@@ -9,5 +10,150 @@
     <canvas id="ctx" width="1080" height="720" style="border:1px solid #000;"></canvas>
     <img id="player" src="img/jugador.png" width="0px" height="0px" alt="player"/>
     <script type="text/javascript" src="js/canvas.js"></script>
+=======
+    <title>Pong Invaders</title>
+    <link type="text/css" rel="stylesheet"  href="css/estilos.css">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/nave.js"></script>
+    <script type="text/javascript" src="js/enemigos.js"></script>
+
+  </head>
+  <body>
+
+
+    <div id="contenedor">
+
+      <div id="baseJuego">
+        <div id="datosScore" class="scoreDatos">
+        <div id="score" class="score">Score: </div>
+        <div id="scoreV" class="score">100</div>
+        <div id="Hscore" class="score">Hi-Score: </div>
+        <div id="HscoreV" class="score">5000</div>
+        <div class="score"/>
+       	<a href="menu.html" id="scoreMenu"> <p>Menu</p></a> <br/>
+        </div><br>
+      </div>
+
+
+      <img id="pongPaddleIzquierda" class="raqueta" src="img/pong-paddle.png" />
+      <img id="pongPaddleDerecha" class="raqueta" src="img/pong-paddle.png" />
+      <img id="pongBall" class="pelota" src="img/pong-ball.png" />
+      <div id="xy" class="xy"><label id="coordenadas">asdfa</label></div>
+
+      <div id="primerA" class="enemigos">
+        <div id="alien1" class="aliens aliensF1"><img src="img/alien1.png"/></div>
+        <div id="alien2" class="aliens"><img src="img/alien1.png"/></div>
+        <div id="alien3" class="aliens"><img src="img/alien1.png"/></div>
+        <div id="alien4" class="aliens"><img src="img/alien1.png"/></div>
+        <div id="alien5" class="aliens"><img src="img/alien1.png"/></div>
+      </div>
+      <div id="segundoA" class="enemigos">
+        <div id="alien6" class="aliens aliensF1"><img src="img/alien1.png"/></div>
+        <div id="alien7" class="aliens aliensF1"><img src="img/alien1.png"/></div>
+        <div id="alien8" class="aliens aliensF1"><img src="img/alien1.png"/></div>
+        <div id="alien9" class="aliens aliensF1"><img src="img/alien1.png"/></div>
+        <div id="alien10" class="aliens aliensF1"><img src="img/alien1.png"/></div>
+      </div>
+      <div id="tercerA" class="enemigos">
+        <div id="alien11" class="aliens aliensF1"><img src="img/alien1.png"/></div>
+        <div id="alien12" class="aliens aliensF1"><img src="img/alien1.png"/></div>
+        <div id="alien13" class="aliens aliensF1"><img src="img/alien1.png"/></div>
+        <div id="alien14" class="aliens aliensF1"><img src="img/alien1.png"/></div>
+        <div id="alien15" class="aliens aliensF1"><img src="img/alien1.png"/></div>
+      </div>
+      <div id="primerB" class="enemigos">
+        <div id="alien16" class="aliens aliensF1"><img src="img/alien2.png"/></div>
+        <div id="alien17" class="aliens aliensF1"><img src="img/alien2.png"/></div>
+        <div id="alien18" class="aliens aliensF1"><img src="img/alien2.png"/></div>
+        <div id="alien19" class="aliens aliensF1"><img src="img/alien2.png"/></div>
+        <div id="alien20" class="aliens"><img src="img/alien2.png"/></div>
+      </div>
+      <div id="segundoB" class="enemigos">
+        <div id="alien21" class="aliens"><img src="img/alien2.png"/></div>
+        <div id="alien22" class="aliens"><img src="img/alien2.png"/></div>
+        <div id="alien23" class="aliens"><img src="img/alien2.png"/></div>
+        <div id="alien24" class="aliens"><img src="img/alien2.png"/></div>
+        <div id="alien25" class="aliens"><img src="img/alien2.png"/></div>
+      </div>
+      <div id="tercerB" class="enemigos">
+        <div id="alien26" class="aliens"><img src="img/alien2.png"/></div>
+        <div id="alien27" class="aliens"><img src="img/alien2.png"/></div>
+        <div id="alien28" class="aliens"><img src="img/alien2.png"/></div>
+        <div id="alien29" class="aliens"><img src="img/alien2.png"/></div>
+        <div id="alien30" class="aliens"><img src="img/alien2.png"/></div>
+      </div>
+      <div id="primerC" class="enemigos">
+        <div id="alien31" class="aliens"><img src="img/alien3.png"/></div>
+        <div id="alien32" class="aliens"><img src="img/alien3.png"/></div>
+        <div id="alien33" class="aliens"><img src="img/alien3.png"/></div>
+        <div id="alien34" class="aliens"><img src="img/alien3.png"/></div>
+        <div id="alien35" class="aliens"><img src="img/alien3.png"/></div>
+      </div>
+      <div id="segundoC" class="enemigos">
+        <div id="alien36" class="aliens"><img src="img/alien3.png"/></div>
+        <div id="alien37" class="aliens"><img src="img/alien3.png"/></div>
+        <div id="alien38" class="aliens"><img src="img/alien3.png"/></div>
+        <div id="alien39" class="aliens"><img src="img/alien3.png"/></div>
+        <div id="alien40" class="aliens"><img src="img/alien3.png"/></div>
+      </div>
+      <div id="tercerC" class="enemigos">
+        <div id="alien41" class="aliens"><img src="img/alien3.png"/></div>
+        <div id="alien42" class="aliens"><img src="img/alien3.png"/></div>
+        <div id="alien43" class="aliens"><img src="img/alien3.png"/></div>
+        <div id="alien44" class="aliens"><img src="img/alien3.png"/></div>
+        <div id="alien45" class="aliens"><img src="img/alien3.png"/></div>
+      </div>
+    </div>
+      <div id="primerD" class="enemigos">
+        <div id="alien46" class="aliens"><img src="img/alien4.png"/></div>
+        <div id="alien47" class="aliens"><img src="img/alien4.png"/></div>
+        <div id="alien48" class="aliens"><img src="img/alien4.png"/></div>
+        <div id="alien49" class="aliens"><img src="img/alien4.png"/></div>
+        <div id="alien50" class="aliens"><img src="img/alien4.png"/></div>
+      </div>
+      <div id="segundoD" class="enemigos">
+        <div id="alien51" class="aliens"><img src="img/alien4.png"/></div>
+        <div id="alien52" class="aliens"><img src="img/alien4.png"/></div>
+        <div id="alien53" class="aliens"><img src="img/alien4.png"/></div>
+        <div id="alien54" class="aliens"><img src="img/alien4.png"/></div>
+        <div id="alien55" class="aliens"><img src="img/alien4.png"/></div>
+      </div>
+      <div id="tercerD" class="enemigos">
+        <div id="alien56" class="aliens"><img src="img/alien4.png"/></div>
+        <div id="alien57" class="aliens"><img src="img/alien4.png"/></div>
+        <div id="alien58" class="aliens"><img src="img/alien4.png"/></div>
+        <div id="alien59" class="aliens"><img src="img/alien4.png"/></div>
+        <div id="alien60" class="aliens"><img src="img/alien4.png"/></div>
+      </div>
+
+      <div id="pared">
+      	<div id="pared" class="pared"><img src="img/pared.png"/></div>
+      	<div id="pared2" class="pared"><img src="img/pared.png"/></div>
+      	<div id="pared3" class="pared"><img src="img/pared.png"/></div>
+
+      	<div id="pared4" class="pared"><img src="img/pared.png"/></div>
+      	<div id="pared5" class="pared"><img src="img/pared.png"/></div>
+      	<div id="pared6" class="pared"><img src="img/pared.png"/></div>
+
+      	<div id="pared7" class="pared"><img src="img/pared.png"/></div>
+      	<div id="pared8" class="pared"><img src="img/pared.png"/></div>
+      	<div id="pared9" class="pared"><img src="img/pared.png"/></div>
+
+      </div>
+
+        <div id="jugador" class="jugador"><img src="img/jugador.png"/></div>
+        <div id="bala" class="balas"></div>
+        <div id="vida" class="score">Vidas: </div>
+        <div id="vida1" class="vidas"><img src="img/vida.png"/></div>
+        <div id="vida2" class="vidas"><img src="img/vida.png"/></div>
+        <div id="vida3" class="vidas"><img src="img/vida.png"/></div>
+
+
+      </div>
+</div>
+
+
+>>>>>>> Stashed changes
   </body>
 </html>
