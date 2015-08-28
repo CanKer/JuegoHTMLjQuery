@@ -34,7 +34,7 @@ $(document).ready(function() {
     });
   }, 30);
 
-  $("#coordenadas").html($(jugador).val());
+  $("#coordenadas").html($(player).val());
 
   $('body').click(function() {
     $('#bala').animate({
@@ -46,8 +46,8 @@ $(document).ready(function() {
       //    x=$("#jugador").offset().left;
       //    y=$("#jugador").offset().top;
       $("#bala").css({
-        left: 500,
-        top: 580
+        left: $("#jugador"),
+        top: $("#jugador")
       });
 
     }
