@@ -49,7 +49,7 @@ p{
   height: 30px;
 }
 #primerA {
-  position: relative;
+  position: absolute;
   left: 100px;
   top: 160px;
 }
