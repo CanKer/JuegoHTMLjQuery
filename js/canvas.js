@@ -1,6 +1,6 @@
 var ctx = document.getElementById("ctx").getContext("2d");
 var naveJ = document.getElementById('player');
-
+//naveJ = new Image();
 ctx.font = '30px Arial';
 ctx.fillStyle = 'red';
 ctx.globalAlpha = 1;
@@ -73,7 +73,7 @@ var nave = {
   id: id,
   vidas: vidas,
 };
-listaJugadores[id] = nave
+listaJugadores[id] = nave;
 }
 var listaJugadores = {};
 
@@ -86,14 +86,18 @@ var ANCHO = 1080;
 document.onmousemove = function(mouse)  {
   var mouseX = mouse.clientX;
   var mouseY = mouse.clientY;
-
-  listaJugadores['J1'].fig.x = mouseX;
+  
+  listaJugadores['J1'].x = mouseX;
+  dibujarEntidadP(listaJugadores['J1']);
+  console.log(listaJugadores['J1'].x = mouseX);
+						
 //  listaJugadores['J1'].y = mouseY;
 }
 
 movimiento = function(entidad) {
   dibujarEntidadA(entidad);
   dibujarMovimientos(entidad);
+   dibujarEntidadP(listaJugadores['J1']);
 }
 
 dibujarMovimientos = function(entidad) {
@@ -110,8 +114,12 @@ dibujarMovimientos = function(entidad) {
 }
 
 dibujarEntidadP = function(entidad) {
-  ctx.drawImage(entidad, 50, 50);
-  //ctx.fillText(entidad.fig, entidad.x, entidad.y);
+ 
+ /*naveJ.onload = function(entidad){
+  ctx.drawImage(entidad, destX, destY);
+};*/
+ ctx.drawImage(entidad.fig, entidad.x, 50);
+ //ctx.fillText(entidad.fig, entidad.x, entidad.y);
 }
 dibujarEntidadA = function(entidad) {
   //ctx.drawImage(listaJugadores['J1'].fig, entidad.x, entidad.y);
@@ -119,6 +127,8 @@ dibujarEntidadA = function(entidad) {
 }
 
 update = function() {
+	//ctx.fillStyle = '#FFF';
+	//ctx.fillRect(0,0,1080,720);
   ctx.clearRect(0,0, ANCHO, ALTURA);
 
   for (var id in listaEnemigos)  {
@@ -134,9 +144,6 @@ update = function() {
   //var grafico = ctx.drawImage(listaJugadores['J1'].fig, 0,0);
   dibujarEntidadP(listaJugadores['J1'].fig);
   ctx.fillText("Vidas: "+ listaJugadores['J1'].vidas + "           Tiempo: " + tiempoTotal, 50, 50);
-
-
-
 }
   setInterval(update, 250);
 
