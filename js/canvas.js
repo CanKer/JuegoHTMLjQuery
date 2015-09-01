@@ -77,7 +77,7 @@ listaJugadores[id] = nave
 }
 var listaJugadores = {};
 
-jugadores('J1', 0, 660, 0, 0, 5, naveJ);
+jugadores('J1', 0, 660, 100, 0, 5, naveJ);
 
 
 var ALTURA = 720;
@@ -87,12 +87,12 @@ document.onmousemove = function(mouse)  {
   var mouseX = mouse.clientX;
   var mouseY = mouse.clientY;
 
-  listaJugadores['J1'].x = mouseX;
+  listaJugadores['J1'].fig.x = mouseX;
 //  listaJugadores['J1'].y = mouseY;
 }
 
 movimiento = function(entidad) {
-  dibujarEntidad(entidad);
+  dibujarEntidadA(entidad);
   dibujarMovimientos(entidad);
 }
 
@@ -109,7 +109,12 @@ dibujarMovimientos = function(entidad) {
   //console.log(x);
 }
 
-dibujarEntidad = function(entidad) {
+dibujarEntidadP = function(entidad) {
+  ctx.drawImage(entidad, 50, 50);
+  //ctx.fillText(entidad.fig, entidad.x, entidad.y);
+}
+dibujarEntidadA = function(entidad) {
+  //ctx.drawImage(listaJugadores['J1'].fig, entidad.x, entidad.y);
   ctx.fillText(entidad.fig, entidad.x, entidad.y);
 }
 
@@ -125,9 +130,11 @@ update = function() {
       var tiempoTotal = tiempoInicio+=1;
     }
   }
-
-  dibujarEntidad(listaJugadores['J1']);
+  //ctx.drawImage(listaJugadores['J1'].fig, 0,0);
+  //var grafico = ctx.drawImage(listaJugadores['J1'].fig, 0,0);
+  dibujarEntidadP(listaJugadores['J1'].fig);
   ctx.fillText("Vidas: "+ listaJugadores['J1'].vidas + "           Tiempo: " + tiempoTotal, 50, 50);
+
 
 
 }
