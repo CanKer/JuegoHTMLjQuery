@@ -1,3 +1,4 @@
+$('body').css({"background-color": "black"});
 var ctx = document.getElementById("ctx").getContext("2d");
 var naveJ = document.getElementById('player');
 var alien1 = document.getElementById('alien1');
@@ -6,11 +7,11 @@ var alien3 = document.getElementById('alien3');
 var alien4 = document.getElementById('alien4');
 var alien5 = document.getElementById('alien5');
 
-
+//hola
 //$('#ctx').css('background-color', 'rgba(158, 167, 184, 0.2)');
 
 ctx.font = '30px Arial';
-ctx.fillStyle = 'red';
+ctx.fillStyle = 'white';
 ctx.globalAlpha = 1;
 
 var tiempoInicio = Date.now();
@@ -23,6 +24,17 @@ obtenerDistancias = function(enemigo, jugador)  {
 
 hacerColision = function(enemigo, jugador)  {
 	var distancia = obtenerDistancias(enemigo, jugador);
+	return distancia < 22;
+}
+
+obtenerDistanciasBA = function(enemigo, bala)	{
+	var vx = enemigo.x - bala.x;
+	var vy = enemigo.y - bala.y;
+	return Math.sqrt(vx*vx*vy*vy);
+}
+
+hacerColisionBA = function(enemigo, bala)	{
+	var distancia = obtenerDistanciasBA(enemigo, bala);
 	return distancia < 22;
 }
 
@@ -131,7 +143,7 @@ jugadores('J1', 0, 660, 100, 0, 5, naveJ);
 
 balas = function(id){
 var bala =	{
-	x: listaJugadores['J1'].x + 55,
+	x: listaJugadores['J1'].x + 90,
 	y: listaJugadores['J1'].y,
 	velX: 0,
 	velY: 10,
@@ -205,7 +217,7 @@ dibujarMovimientos = function(entidad) {
 }
 
 dibujarEntidadP = function(entidad) {
- ctx.drawImage(entidad.fig, entidad.x, 600, 120, 100);
+ ctx.drawImage(entidad.fig, entidad.x, 600, 190, 100);
 }
 dibujarEntidadA = function(entidad) {
   ctx.drawImage(entidad.fig, entidad.x, entidad.y, 40, 40);
@@ -214,13 +226,21 @@ dibujarEntidadB = function(entidad) {
   ctx.fillRect(entidad.x, entidad.y, entidad.width, entidad.height);
 }
 
+//alert(listaEnemigos[id]);
+//alert(listaJugadores[id]);
+
+for (var id in listaBalas)	{
+	alert(listaBalas[id]);
+}
 
 update = function() {
+
 
   ctx.clearRect(0,0, ANCHO, ALTURA);
 	for(var id in listaBalas)	{
 		movimientoB(listaBalas[id]);
 	}
+
   for (var id in listaEnemigos)  {
     movimiento(listaEnemigos[id]);
     var colision = hacerColision(listaJugadores['J1'],listaEnemigos[id]);
@@ -230,6 +250,14 @@ update = function() {
       var tiempoTotal = tiempoInicio+=1;
     }
   }
+
+/*for (var id in listaEnemigos)	{
+	var colision = hacerColisionBA(listaEnemigos[id], listaBalas[id]);
+	if(colision)	{
+		delete listaEnemigos[id];
+	}
+} */
+
 
   dibujarEntidadP(listaJugadores['J1'].fig);
   ctx.fillText("Vidas: "+ listaJugadores['J1'].vidas + "           Tiempo: " + tiempoTotal, 50, 50);
