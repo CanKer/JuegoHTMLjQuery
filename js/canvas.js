@@ -259,6 +259,14 @@ update = function() {
 	}
 }*/
 
+for(var i = 0; i <= listaEnemigos[id].length; i++)	{
+	for (var j = 0; j < listaBalas[id].length; j++) {
+		var colision = hacerColisionBA(listaEnemigos[i], listaBalas[j]);
+		if(colision)	{
+			delete listaEnemigos[id];
+		}
+	}
+}
 
   dibujarEntidadP(listaJugadores['J1'].fig);
   ctx.fillText("Vidas: "+ listaJugadores['J1'].vidas + "           Tiempo: " + tiempoTotal, 50, 50);
