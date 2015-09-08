@@ -224,9 +224,6 @@ dibujarEntidadB = function(entidad) {
   ctx.fillRect(entidad.x, entidad.y, entidad.width, entidad.height);
 }
 
-//alert(listaEnemigos[id]);
-//alert(listaJugadores[id]);
-
 for (var id in listaBalas)	{
 	alert(listaBalas[id]);
 }
@@ -247,15 +244,6 @@ update = function() {
     }
   }
 
-/*for (var id in listaEnemigos)	{
-	var colision = hacerColisionBA(listaEnemigos[id], listaBalas[id]);
-	if(colision)	{
-		delete listaEnemigos[id];
-	}
-}*/
-
-//console.log(listaBalas);
-
 for(var i in listaBalas){
 	for (var j in listaEnemigos){
 		var colision2 = hacerColisionBA(listaBalas[i], listaEnemigos[j]);
@@ -264,6 +252,7 @@ for(var i in listaBalas){
 			delete listaBalas[i];
 			console.log("enemigo eliminado: " + j);
 			console.log("bala eliminada: " + i);
+			break;
 		}
 	}
 }
