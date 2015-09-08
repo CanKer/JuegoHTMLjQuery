@@ -7,7 +7,6 @@ var alien3 = document.getElementById('alien3');
 var alien4 = document.getElementById('alien4');
 var alien5 = document.getElementById('alien5');
 
-//hola
 //$('#ctx').css('background-color', 'rgba(158, 167, 184, 0.2)');
 
 ctx.font = '30px Arial';
@@ -27,16 +26,16 @@ hacerColision = function(enemigo, jugador)  {
 	return distancia < 22;
 }
 
-/*obtenerDistanciasBA = function(enemigo, bala)	{
+obtenerDistanciasBA = function(bala, enemigo)	{
 	var vx = enemigo.x - bala.x;
 	var vy = enemigo.y - bala.y;
-	return Math.sqrt(vx*vx*vy*vy);
+	return Math.sqrt(vx*vx+vy*vy);
 }
 
-hacerColisionBA = function(enemigo, bala)	{
-	var distancia = obtenerDistanciasBA(enemigo, bala);
+hacerColisionBA = function(bala, enemigo)	{
+	var distancia = obtenerDistanciasBA(bala, enemigo);
 	return distancia < 22;
-}*/
+}
 
 //Enemigo
 enemigos = function(id, x, y, velX, velY, fig){
@@ -156,20 +155,18 @@ var bala =	{
 }
 
 var listaBalas = {};
-	var id = 0;
-document.onclick = function()	{
+var id = 0;
 
+document.onclick = function(){
 	balas(id);
 	id++;
-	console.log(listaBalas);
+	//console.log(listaBalas);
 }
-
-
 
 var ALTURA = 720;
 var ANCHO = 1080;
 
-document.onmousemove = function(mouse)  {
+document.onmousemove = function(mouse){
   var mouseX = mouse.clientX;
   var mouseY = mouse.clientY;
 
@@ -190,9 +187,9 @@ document.onmousemove = function(mouse)  {
 }
 
 movimiento = function(entidad) {
-  dibujarEntidadA(entidad);
+	dibujarEntidadA(entidad);
 	dibujarMovimientos(entidad);
-  dibujarEntidadP(listaJugadores['J1']);
+	dibujarEntidadP(listaJugadores['J1']);
 
 }
 movimientoB = function(entidad)	{
@@ -235,8 +232,6 @@ for (var id in listaBalas)	{
 }
 
 update = function() {
-
-
   ctx.clearRect(0,0, ANCHO, ALTURA);
 	for(var id in listaBalas)	{
 		movimientoB(listaBalas[id]);
@@ -259,11 +254,16 @@ update = function() {
 	}
 }*/
 
-for(var i = 0; i <= listaEnemigos[id].length; i++)	{
-	for (var j = 0; j < listaBalas[id].length; j++) {
-		var colision = hacerColisionBA(listaEnemigos[i], listaBalas[j]);
-		if(colision)	{
-			delete listaEnemigos[id];
+//console.log(listaBalas);
+
+for(var i in listaBalas){
+	for (var j in listaEnemigos){
+		var colision2 = hacerColisionBA(listaBalas[i], listaEnemigos[j]);
+		if(colision2){
+			delete listaEnemigos[j];
+			delete listaBalas[i];
+			console.log("enemigo eliminado: " + j);
+			console.log("bala eliminada: " + i);
 		}
 	}
 }
