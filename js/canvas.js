@@ -1,19 +1,29 @@
 $('body').css({"background-color": "black"});
 var ctx = document.getElementById("ctx").getContext("2d");
-//var naveJ = document.getElementById('player');
 var alien1 = document.getElementById('alien1');
 var alien2 = document.getElementById('alien2');
 var alien3 = document.getElementById('alien3');
 var alien4 = document.getElementById('alien4');
 var alien5 = document.getElementById('alien5');
+var score = 0;
+//var tiempo = new Date().getTime();
 
-//$('#ctx').css('background-color', 'rgba(158, 167, 184, 0.2)');
-
+//ctx.font('20px arcade');
 ctx.font = '30px Arial';
 ctx.fillStyle = 'white';
 ctx.globalAlpha = 1;
 
-var tiempoInicio = Date.now();
+//var tiempoInicio = Date.now();
+
+//PONG
+var lienzo = document.getElementById("ctx");
+var WIDTH = lienzo.width, HEIGHT = lienzo.height;
+var speedX = 5, speedY = 5, ballX = 300, ballY = 200;
+var speed = 60, paddle1X = 50, paddle1Y = 0, paddle2X = WIDTH - 50, paddle2Y = 100;
+var radio = 15;
+var anguloFinal = 360 * Math.PI / 180;	
+
+
 
 obtenerDistancias = function(enemigo, jugador)  {
 	var vx = enemigo.x - jugador.x;
@@ -58,70 +68,58 @@ enemigos('E4', 50, 40, 20, 40, 'o');
 enemigos('E5', 40, 50, 10, 50, 'o'); */
 
 //Bloque izquierdo
-enemigos('E01', 140, 150, -1, 0, alien1);
-enemigos('E02', 190, 150, -1, 0, alien2);
-enemigos('E03', 240, 150, -1, 0, alien3);
-enemigos('E04', 290, 150, -1, 0, alien4);
-enemigos('E05', 340, 150, -1, 0, alien5);
-enemigos('E06', 140, 200, 1, 0, alien1);
-enemigos('E07', 190, 200, 1, 0, alien2);
-enemigos('E08', 240, 200, 1, 0, alien3);
-enemigos('E09', 290, 200, 1, 0, alien4);
-enemigos('E10', 340, 200, 1, 0, alien5);
-enemigos('E11', 140, 250, -1, 0, alien1);
-enemigos('E12', 190, 250, -1, 0, alien2);
-enemigos('E13', 240, 250, -1, 0, alien3);
-enemigos('E14', 290, 250, -1, 0, alien4);
-enemigos('E15', 340, 250, -1, 0, alien5);
-enemigos('E16', 140, 300, 1, 0, alien1);
-enemigos('E17', 190, 300, 1, 0, alien2);
-enemigos('E18', 240, 300, 1, 0, alien3);
-enemigos('E19', 290, 300, 1, 0, alien4);
-enemigos('E20', 340, 300, 1, 0, alien5);
+enemigos('E01', 140, 150, -2, 0, alien1);
+enemigos('E02', 200, 150, -2, 0, alien2);
+enemigos('E03', 260, 150, -2, 0, alien3);
+enemigos('E04', 320, 150, -2, 0, alien4);
+enemigos('E06', 140, 200, 2, 0, alien1);
+enemigos('E07', 200, 200, 2, 0, alien2);
+enemigos('E08', 260, 200, 2, 0, alien3);
+enemigos('E09', 320, 200, 2, 0, alien4);
+enemigos('E11', 140, 250, -2, 0, alien1);
+enemigos('E12', 200, 250, -2, 0, alien2);
+enemigos('E13', 260, 250, -2, 0, alien3);
+enemigos('E14', 320, 250, -2, 0, alien4);
+enemigos('E16', 140, 300, 2, 0, alien1);
+enemigos('E17', 200, 300, 2, 0, alien2);
+enemigos('E18', 260, 300, 2, 0, alien3);
+enemigos('E19', 320, 300, 2, 0, alien4);
 
 //Bloque medio
-enemigos('E21', 440, 150, -1, 0, alien1);
-enemigos('E22', 490, 150, -1, 0, alien2);
-enemigos('E23', 540, 150, -1, 0, alien3);
-enemigos('E24', 590, 150, -1, 0, alien4);
-enemigos('E25', 640, 150, -1, 0, alien5);
-enemigos('E26', 440, 200, 1, 0, alien1);
-enemigos('E27', 490, 200, 1, 0, alien2);
-enemigos('E28', 540, 200, 1, 0, alien3);
-enemigos('E29', 590, 200, 1, 0, alien4);
-enemigos('E30', 640, 200, 1, 0, alien5);
-enemigos('E31', 440, 250, -1, 0, alien1);
-enemigos('E32', 490, 250, -1, 0, alien2);
-enemigos('E33', 540, 250, -1, 0, alien3);
-enemigos('E34', 590, 250, -1, 0, alien4);
-enemigos('E35', 640, 250, -1, 0, alien5);
-enemigos('E36', 440, 300, 1, 0, alien1);
-enemigos('E37', 490, 300, 1, 0, alien2);
-enemigos('E38', 540, 300, 1, 0, alien3);
-enemigos('E39', 590, 300, 1, 0, alien4);
-enemigos('E40', 640, 300, 1, 0, alien5);
+enemigos('E21', 440, 150, -2, 0, alien1);
+enemigos('E22', 500, 150, -2, 0, alien2);
+enemigos('E23', 560, 150, -2, 0, alien3);
+enemigos('E24', 620, 150, -2, 0, alien4);
+enemigos('E26', 440, 200, 2, 0, alien1);
+enemigos('E27', 500, 200, 2, 0, alien2);
+enemigos('E28', 560, 200, 2, 0, alien3);
+enemigos('E29', 620, 200, 2, 0, alien4);
+enemigos('E31', 440, 250, -2, 0, alien1);
+enemigos('E32', 500, 250, -2, 0, alien2);
+enemigos('E33', 560, 250, -2, 0, alien3);
+enemigos('E34', 620, 250, -2, 0, alien4);
+enemigos('E36', 440, 300, 2, 0, alien1);
+enemigos('E37', 500, 300, 2, 0, alien2);
+enemigos('E38', 560, 300, 2, 0, alien3);
+enemigos('E39', 620, 300, 2, 0, alien4);
 
 //Bloque derecho
-enemigos('E41', 740, 150, -1, 0, alien1);
-enemigos('E42', 790, 150, -1, 0, alien2);
-enemigos('E43', 840, 150, -1, 0, alien3);
-enemigos('E44', 890, 150, -1, 0, alien4);
-enemigos('E45', 940, 150, -1, 0, alien5);
-enemigos('E46', 740, 200, 1, 0, alien1);
-enemigos('E47', 790, 200, 1, 0, alien2);
-enemigos('E48', 840, 200, 1, 0, alien3);
-enemigos('E49', 890, 200, 1, 0, alien4);
-enemigos('E50', 940, 200, 1, 0, alien5);
-enemigos('E51', 740, 250, -1, 0, alien1);
-enemigos('E52', 790, 250, -1, 0, alien2);
-enemigos('E53', 840, 250, -1, 0, alien3);
-enemigos('E54', 890, 250, -1, 0, alien4);
-enemigos('E55', 940, 250, -1, 0, alien5);
-enemigos('E56', 740, 300, 1, 0, alien1);
-enemigos('E57', 790, 300, 1, 0, alien2);
-enemigos('E58', 840, 300, 1, 0, alien3);
-enemigos('E59', 890, 300, 1, 0, alien4);
-enemigos('E60', 940, 300, 1, 0, alien5);
+enemigos('E41', 740, 150, -2, 0, alien1);
+enemigos('E42', 800, 150, -2, 0, alien2);
+enemigos('E43', 860, 150, -2, 0, alien3);
+enemigos('E44', 920, 150, -2, 0, alien4);
+enemigos('E46', 740, 200, 2, 0, alien1);
+enemigos('E47', 800, 200, 2, 0, alien2);
+enemigos('E48', 860, 200, 2, 0, alien3);
+enemigos('E49', 920, 200, 2, 0, alien4);
+enemigos('E51', 740, 250, -2, 0, alien1);
+enemigos('E52', 800, 250, -2, 0, alien2);
+enemigos('E53', 860, 250, -2, 0, alien3);
+enemigos('E54', 920, 250, -2, 0, alien4);
+enemigos('E56', 740, 300, 2, 0, alien1);
+enemigos('E57', 800, 300, 2, 0, alien2);
+enemigos('E58', 860, 300, 2, 0, alien3);
+enemigos('E59', 920, 300, 2, 0, alien4);
 
 //Jugador
 jugadores = function(id, x, y, velX, velY, vidas, fig) {
@@ -160,7 +158,6 @@ var id = 0;
 document.onclick = function(){
 	balas(id);
 	id++;
-	//console.log(listaBalas);
 }
 
 var ALTURA = 720;
@@ -182,8 +179,6 @@ document.onmousemove = function(mouse){
 
   listaJugadores['J1'].x = mouseX;
   dibujarEntidadP(listaJugadores['J1']);
-//  console.log(listaJugadores['J1'].x = mouseX);
-  //listaJugadores['J1'].y = mouseY;
 }
 
 movimiento = function(entidad) {
@@ -230,6 +225,28 @@ for (var id in listaBalas)	{
 
 update = function() {
   ctx.clearRect(0,0, ANCHO, ALTURA);
+  
+  //limpiar canvas
+	clear();
+	
+	drawPaddle1();
+	
+	movePaddle2();
+	drawPaddle2();
+	//dibujar
+	drawBall();
+	
+	//ball
+	if (ballX + radio > WIDTH || ballX - radio < 0)		 speedX *= -1;
+   		 
+    if (ballY + radio > HEIGHT || ballY - radio  < 0)  	 speedY *= -1;
+   
+    detectCollisions();
+   
+    ballX += speedX;
+	ballY += speedY;
+  
+  
 	for(var id in listaBalas)	{
 		movimientoB(listaBalas[id]);
 	}
@@ -240,7 +257,7 @@ update = function() {
     if (colision) {
       listaJugadores['J1'].vidas = listaJugadores['J1'].vidas - 1;
     //  console.log('Perdiste');
-      var tiempoTotal = tiempoInicio+=1;
+      //var tiempoTotal = tiempoInicio+=1;
     }
   }
 
@@ -250,14 +267,101 @@ for(var i in listaBalas){
 		if(colision2){
 			delete listaEnemigos[j];
 			delete listaBalas[i];
-			console.log("enemigo eliminado: " + j);
-			console.log("bala eliminada: " + i);
+			score += 100;
 			break;
 		}
 	}
 }
 
   dibujarEntidadP(listaJugadores['J1'].fig);
-  ctx.fillText("Vidas: "+ listaJugadores['J1'].vidas + "           Tiempo: " + tiempoTotal, 50, 50);
+  //ctx.font('20px arcade');
+  ctx.fillText("Vidas: "+ listaJugadores['J1'].vidas + "           Score: " + score, 50, 50 );
 }
   setInterval(update, 10);
+   
+//PONG
+window.onload = function()
+{
+	//limpiar canvas
+	//ctx.fillStyle = "#f0f0f0";
+	//ctx.fillRect(0, 0, WIDTH, HEIGHT);
+	//dibujar
+	drawBall();
+	drawPaddle1();
+	//init();
+	
+}
+
+function clear() 
+{
+  ctx.globalAlpha = 0.6;
+  //ctx.fillStyle = "#f0f0f0";
+  //ctx.fillRect(0, 0, WIDTH, HEIGHT);
+  ctx.globalAlpha = 1.0;
+}
+
+function drawBall()
+{	
+	ctx.beginPath();
+	ctx.arc(ballX, ballY, radio, 0, anguloFinal, false);
+	ctx.strokeStyle = "blue";
+	ctx.stroke(); 
+	return;
+}
+
+function drawPaddle1()
+{
+	//limitar el paddle1 a la pantalla
+	if(paddle1Y <= 0) 					paddle1Y = 0;
+	else if(paddle1Y + 180 >= HEIGHT) 	paddle1Y = HEIGHT - 200;
+	
+	//draw paddle 
+	ctx.beginPath();
+	ctx.moveTo(paddle1X, paddle1Y);
+	ctx.lineTo(paddle1X, paddle1Y + 180);
+	ctx.lineWidth = 20;
+	ctx.lineCap = "round";
+	ctx.strokeStyle = "#ABC231";
+	ctx.stroke();	
+	
+}
+
+function drawPaddle2()
+{
+
+	//draw paddle 
+	ctx.beginPath();
+	ctx.moveTo(paddle2X, paddle2Y);
+	ctx.lineTo(paddle2X, paddle2Y + 180);
+	ctx.lineWidth = 20;
+	ctx.lineCap = "round";
+	ctx.strokeStyle = "#ABC231";
+	ctx.stroke();	
+	
+}
+
+function detectCollisions()
+{
+	if(ballX <= paddle1X + 20 + radio && ballY >= paddle1Y && ballY <= paddle1Y + 180 || ballX >= paddle2X - 20 - radio && ballY >= paddle2Y && 			ballY <= paddle2Y + 180) //Chocó con paddle1 || paddle2
+	{
+		speedX *= -1;
+	}
+}
+
+function movePaddle2(){
+	paddle2Y += speedY / 2;
+	
+	if(paddle2Y <= 0)						paddle2Y = 0;
+	else if(paddle2Y + 180 >= HEIGHT) 		paddle2Y = HEIGHT - 200;
+}
+
+/*
+function init()
+{
+	return setInterval(update, speed);
+}*/
+
+lienzo.onmousemove = function(event)
+{
+	paddle1Y = event.clientY;	
+}
